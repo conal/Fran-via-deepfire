@@ -1,0 +1,164 @@
+<html>
+
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<meta NAME="GENERATOR" CONTENT="Microsoft FrontPage 5.0">
+<title>Functional Reactive Animation (Fran)</title>
+</head>
+
+<body>
+
+<h1 ALIGN="CENTER">Fran version 1.16</h1>
+
+<h2 ALIGN="CENTER">(Functional Reactive Animation)</h2>
+
+<p ALIGN="CENTER"><img src="patOrbitsCharlotte.gif" width="248" height="248"
+alt="patOrbitsCharlotte.gif (81661 bytes)"></p>
+
+<h2 ALIGN="CENTER"><a HREF="http://research.microsoft.com/~conal/">Conal Elliott</a></h2>
+<em>
+
+<p ALIGN="CENTER">Updated 
+<!--webbot bot="Timestamp" S-Type="EDITED"
+S-Format="%B %d, %Y" startspan -->January 08, 2002<!--webbot bot="Timestamp" endspan i-checksum="31084" --></p>
+</em>
+
+<p>Fran is a Haskell library (or &quot;embedded language&quot;) for interactive
+animations with 2D and 3D graphics and sound. It runs under Windows 95/98 and
+Windows NT under <a href="http://haskell.org/hugs">Hugs 98</a>.&nbsp; (Do not
+use the version distributed with Hugs98.&nbsp; It has a version skew problem.)</p>
+<p>Here is a tutorial article on <a href="http://www.research.microsoft.com/~conal/fran/tutorial.htm">Composing
+Reactive Animations</a>. (The animated GIFs total 2Mb. Please be patient. You
+might want to download the <a href="http://www.research.microsoft.com/~conal/fran/tutorialArticle.zip">zip
+file</a> and view it locally.)&nbsp; See <a href="http://www.research.microsoft.com/~conal/papers">here</a>
+for a few other related publications.</p>
+<p>See <a href="http://research.microsoft.com/~conal/Fran/news.htm">news</a> for
+details on changes from one version to another, and links to zip files for all
+released versions.</p>
+<p>See <a href="http://research.microsoft.com/~conal/Fran/papers.htm">here</a>
+for some publications on Fran.&nbsp; Also, check out <a href="http://research.microsoft.com/~conal/Pan">Pan</a>, an image synthesis and
+manipulation language.&nbsp; Roughly speaking, it does for 2D space what Fran
+does for time.</p>
+<h3>Notes</h3>
+<ul>
+  <li>Download Hugs98 and the Win32 libraries from the download page linked to <a href="http://haskell.org/hugs">here</a>.</li>
+  <li>Download and unpack the <a href="javascript:function openEula(url){window.open(url,'eula','width=500,height=450,scrollbars=no,address=no,menu=no');}openEula('http://research.microsoft.com/downloads/download.asp?FUID={8C661070-F425-4319-92DF-EC3E8D736770}' + '&CodeName=' + escape('Fran') + '&Version=' + escape('1.16'));">latest version</a> so
+    that you have a <tt>Fran</tt> subdirectory in <tt>c:\Hugs98\lib</tt>. (Or
+    elsewhere, depending on where you installed Hugs.)&nbsp; Use <tt>:set -P;c:\Hugs98\lib\Fran&quot;</tt>
+    to ensure that the library is included on your search path. You will also
+    need to copy the file <tt>SpriteLib.dll</tt> from <tt>c:\Hugs98\lib\Fran</tt>
+    into <tt>c:\Hugs98</tt> so that it is in the same directory as the Hugs
+    executables.</li>
+  <li>Fran works with Windows only. You'll need DirectX version 3 or better.&nbsp;
+    I recommend that you get the <a href="http://www.microsoft.com/directx">latest
+    version</a> if you have Windows 95, 98 or 2000. DirectX 3 works with NT 4.0
+    if you have Service pack 3 installed.&nbsp; A Un*x version would be great,
+    but I don't have the resources to do it.</li>
+  <li>Check out the <a href="http://www.research.microsoft.com/~conal/fran/tutorial.htm">tutorial</a>
+    and <a href="http://research.microsoft.com/~conal/Fran/UsersMan.htm">User's
+    Manual</a>. (The tutorial has lots of animated GIFs totalling 2Mb. Please be
+    patient. You might want to download the <a href="http://www.research.microsoft.com/~conal/fran/tutorialArticle.zip">zip
+    file</a> and view it locally.)
+  <li>The <b>demos</b> directory has -- guess what? -- demos! See <a href="http://research.microsoft.com/~conal/Fran/demos.htm">demos.htm</a>.
+  <li>The garbage collector interferes with smooth performance. After Hugs and <a href="http://www.dcs.gla.ac.uk/fp/software/ghc/">GHC</a>
+    are merged, this problem should not be noticeable.
+  <li>As of very recently, Fran works with <a href="http://www.dcs.gla.ac.uk/fp/software/ghc/">GHC</a>.
+    Performance is <em>much</em> better. Installation is somewhat painful, but
+    that situation is improving. If you're interested, see <a href="http://research.microsoft.com/~conal/Fran/HowToGHC.txt">HowToGHC.txt</a>.
+    Well, there are a few missing pieces, related to GreenCard, so you'd better
+    wait.&nbsp; Sorry!
+  <li>Try examples of your own. If you send me ones you've built, I'll consider
+    them for inclusion (with credit to you) in future releases.
+  <li>If you're installing Fran from a zip file, rename your Hugs/lib/Fran (if
+    you have one) to &quot;FranWas&quot; (for instance), and unzip into
+    Hugs/lib.&nbsp; Then rename Hugs/SpriteLib.dll to SpriteLibWas.dll, and
+    manually copy the new Hugs/lib/Fran/SpriteLib.dll into Hugs/
+    (important).&nbsp;&nbsp; Then try it out.&nbsp; If you get an error message
+    like 'ERROR: &quot;.../HSpriteLib.hs&quot;: Error while importing DLL &quot;HSpriteLib.dll&quot;
+    ', you're probably getting an old SpriteLib.dll or none at all.
+  <li>Due to bit rot, running the tutorial via &quot;main&quot; in demos/Tutorial.hs
+    often dies with &quot;Program error: IOExts.interleaveIO: thread exited with no result&quot;.&nbsp;
+    You can, however run the examples individually as explained in the header
+    comment.</li>
+  <li>In any case, please <a href="mailto:conal@microsoft.com">let me know</a>
+    about your experience.</li>
+</ul>
+
+<h3>Bugs / To do</h3>
+
+<ul>
+  <li><a HREF="todo.htm">Small items</a> </li>
+  <li><a HREF="projects.htm">Non-trivial projects</a> </li>
+</ul>
+
+<h3>&nbsp;Credits</h3>
+
+<ul>
+  <li>Greg Schechter, Ricky Yeung, Salim AbiEzzi, and I collaborated at Sun Microsystems on
+    <a HREF="http://research.microsoft.com/~conal/tbag/index.htm">TBAG</a>,
+    a system for constraint-based, semi-declarative modeling of 3D animation. Some of the Fran
+    ideas were initially explored there. </li>
+  <li><a HREF="http://http://www.research.microsoft.com/research/apl/knoblock">Todd Knoblock</a>
+    and Jim Kajiya helped to explore the basic ideas of behaviors and events. </li>
+  <li><a HREF="http://www.dcs.gla.ac.uk/~sof">Sigbjorn Finne</a> helped a lot with the
+    implementation during his summer '96 internship. Since then, he has been <i><b>very</b></i>
+    helpful with getting getting Fran and GHC working well together. </li>
+  <li><a HREF="http://www.cs.ukc.ac.uk/people/staff/acd">Tony Daniels</a> has been pushing the limits of
+    physics-oriented reactive behavior, uncovering some limitations in the implementation. He
+    also collaborated on some ideas for efficient behavior representation. </li>
+  <li><a HREF="http://www.cs.yale.edu/HTML/YALE/CS/HyPlans/hudak-paul.html">Paul Hudak</a> has
+    been collaborating on the ideas and, in particular, how to embed them in Haskell. </li>
+  <li><a HREF="http://www.cs.yale.edu/HTML/YALE/CS/HyPlans/reid-alastair.html">Alastair Reid</a>
+    answered lots of my naive questions about Haskell and its implementation, and provided
+    some emergency Hugs hacking. He also made very helpful pass through version 0.8, updating
+    it to a newer Hugs version, and making various improvements, and rewriting interaction
+    code to be much simpler. </li>
+  <li><a HREF="http://www.cs.yale.edu/homes/peterson-john.html">John Peterson</a> wrote
+    another implementation that provided an interesting comparison. Many interesting
+    discussions. With Gary Shu Ling and me, wrote the Fran User's guide. </li>
+  <li><a HREF="http://www.cs.yale.edu/users/ling/">Gary Shu Ling</a> found misc bugs and
+    sources of incompleteness. He also helped out quite a lot with the Fran 1.05 during a Fall
+    '97 internship, and developed the Sokoban demo. </li>
+  <li><a HREF="http://research.microsoft.com/Users/simonpj">Simon Peyton Jones</a> is helping me
+    understand <a HREF="http://www.dcs.gla.ac.uk/fp/software/ghc/">GHC</a> (the Glasgow
+    Haskell compiler) and how to use it effectively to compiler animation programs, as well as
+    how to better implement Fran. </li>
+  <li><a HREF="http://www.cse.ogi.edu/~mpj">Mark Jones</a> helped me understand Haskell type classes and how to use them well in Fran.&nbsp;
+    He also adapted Fran for
+    Haskell 98&nbsp; </li>
+  <li><a HREF="http://www.research.avayalabs.com/user/wadler">Philip Wadler</a> had provided interesting
+    and insightful feedback on the semantics of behaviors and events. </li>
+  <li>Jake Elliott did the artwork for Sokoban. </li>
+</ul>
+
+<h3>More fun</h3>
+
+<div align="left">
+  <table border="0" cellpadding="15" cellspacing="0">
+    <tr>
+      <td align="center"></td>
+      <td align="center"><a href="http://research.microsoft.com/~conal/Pan/Gallery/intro/medres/spiral%20title.jpg"><img border="2" src="http://research.microsoft.com/~conal/Pan/Gallery/thumbnails/spiral_title_small.jpg" width="100" height="100"></a></td>
+      <td width="400">If Fran appeals to you, check out <a href="http://research.microsoft.com/~conal/Pan"><i>Pan</i></a>,
+        a high-level library and optimizing compiler for synthesis of
+        interactive images.</td>
+      <td align="center"><a href="http://research.microsoft.com/~conal/Pan/Gallery/PanPics/medres/inverse%20tiled%20pat.jpg"><img border="2" src="http://research.microsoft.com/~conal/Pan/Gallery/PanPics/inverse_tiled_pat_small.jpg" width="100" height="100"></a></td>
+    </tr>
+  </table>
+</div>
+
+<h3>Contact</h3>
+
+<blockquote>
+  <a HREF="http://www.research.microsoft.com/~conal"><p>Conal Elliott</a> <br>
+  Graphics Research Group <br>
+  Microsoft Research <br>
+  <a HREF="mailto:conal@microsoft.com">conal@microsoft.com</a> </p>
+</blockquote>
+<p><em><big><strong>Last updated:</strong> </big>
+<!--webbot bot="Timestamp"
+S-Type="EDITED" S-Format="%B %d, %Y" startspan -->January 08, 2002<!--webbot bot="Timestamp" endspan i-checksum="31084" -->. <big><strong>Visitor Count:</strong></big></em>&nbsp;&nbsp;<a href="http://member.linkexchange.com/cgi-bin/fc/fastcounter-login?2288745" 
+target="_top"><img border="0" 
+src="http://fastcounter.linkexchange.com/fastcounter?2288745+4577497"></a>
+ since November 20, 1998</p>
+</body>
+</html>

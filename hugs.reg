@@ -1,0 +1,5 @@
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Haskell\Hugs\January 1998]
+"Options"="-s -t +f +g -l -e -. +q -w -k +u +i -h2000000 -p\"%s> \" -r\"$$\" -P\"c:\\\\Users\\\\Conal\\\\Fran;{Hugs}\\\\lib;{Hugs}\\\\lib\\\\hugs;{Hugs}\\\\lib\\\\exts;c:\\\\usr\\\\fptools\\\\src\\\\win32\\\\hugs;{Hugs}\\\\lib\\\\win32\" "
+

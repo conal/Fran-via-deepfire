@@ -1,0 +1,52 @@
+                      Notes on making a Fran Release
+
+             Last modified Mon May 15 08:27:43 2000 by conal
+
+
+- In ../, do "make staticTest", and make sure there are no errors.  Then
+  run a few tests.  Tutorial is a good general one.
+
+- Update news.htm, if it's fallen behind.  My practice is to make comments
+  when I check in files, and then, just before a release, get a history
+  since the last release, and organize the results into a new news.htm
+  entry.
+
+- If any any source files have been added to SpriteLib, or project
+  settings changed, then in SpriteLib, check out SpriteLib.mak, open the
+  project the Visual C++, go to the Project menu and select "Export
+  Makefile".  (Enables automated build of SpriteLib, which is seldom
+  necessary.)
+
+- Update default.htm.  Change the version number, date and download link.
+  Save.
+
+- Do a recursive SourceSafe check-in at the Fran level.
+
+- Do a SourceSafe "get" to a directory ToZip\Fran, where ToZip is empty,
+  selecting "recursive", "writable", "build tree", and setting the file
+  dates to "modified", in the advanced controls for "get" (if not already
+  set as the VSS default).
+
+- SpriteLib sometimes gets excluded, and I'm stumped as to why.  Check to
+  make sure it's there, and if not, get it (recursively and writable)
+  explicitly to ToZip\Fran\SpriteLib.  (The "build tree" option in
+  recursive get avoids the problem.)
+
+- Delete any files from ToZip\Fran that should not go into the release.
+  Currently none.
+
+- Make a new file, like "Fran1.10.zip" in ToZip; open it with WinZip; hit
+  the "Add" button, change the directory to the ToZip one you just made,
+  and do a recursive wildcard add.
+
+- Move the new zip file to my fran/Zips web directory, and delete the
+  ToZip/Fran subtree.
+
+- Do a SourceSafe "get" on docs to my fran web directory.
+
+- Verify that it works, by following the link from my external web page:
+  http://www.research.microsoft.com/~conal/fran/docs.
+
+- Assuming it works, do a SourceSafe "label" to the Fran project.
+
+- Put out the word.

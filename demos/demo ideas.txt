@@ -1,0 +1,68 @@
+                           Ideas for Fran Demos
+
+             Last modified Thu May 07 10:28:06 1998 by conal
+
+
+There are two main purposes for choosing good demos.  First, they will
+help to convey to people (DA team, graphics folks, language folks, ...)
+why they would be interested in adopting some of the semantic and
+implementation ideas or even something like Haskell and Fran.  Second,
+they will focus our limited R&D resources.
+
+Make sure to show well-factored (hierarchical and parametric) state
+machines that exhibits complex behavior.
+
+The demo ideas:
+
+  - 3D rolodex-style information access.  Or file folder.  When selected,
+    bring smoothly out of container, while opening up to reveal more
+    information.  Closes and returns to container when told to.  What
+    information?
+
+  - Robot wars.  Let people program their own robots and have them
+    battle.  Depends on well-defined Robot interface.
+
+  - Lemmings.  Could also be extensible.  Maybe throw in reproduction.
+
+  - Author new agents for MS Agent.
+
+  - Asteroids: enemies, multi-player, multi-level, top scores list.  VB-
+    or MFC-based UI.
+
+  - Simple strategy games, user vs computer.
+
+  - Maze-wandering game, including treasures, keys and autonomous
+    monsters.  VB- or MFC-based UI.  Save & restore game.
+
+  - A simple editor, say for curves or animations.  Emphasize
+    multi-lingual integration.  The general idea would be to do the UI and
+    application structure with VB, but media and animation stuff with
+    Fran.  Handle all raw UI in VB, turning them into higher level
+    animation events, such as, grabControlPoint.
+
+  - Springs-and-balls assembly kit.  Users may add or remove pieces,
+    change masses and stiffnesses, and activate/deactivate visualization of
+    force, acceleration, velocity vectors, or spring displacements.
+
+  - Multi-view editing, starting with color widgets.  The Brown U guys
+    couldn't figure out how to do it with DA, and think constraints may be
+    necessary.  [Challenges: simulate multi-directional constraints;
+    spatially modular interaction.]
+
+  - Fish tank simulation with prey and predators.  New
+    inhabitants may be added at any time, via GUI.  Abilities:
+    + Vision, and some form of discrimination about what is seen, such as
+      distance and species.
+    + Hunger, and knowledge of prey/predator.
+    + Turning and propulsion (motivated by hunger, vision, and prey/predator
+      knowledge).
+    + Eating & being eaten
+    + Maybe strength and max speed
+
+  - Dogz & Catz (http://www.pfmagic.com).  Give each a variety of
+    behaviors (eating, sleeping, exploration) in addition to their
+    interactions, to illustrate compositional construction of complex
+    multi-phase behavior.  Users can provide food, play, bedding,
+    transportation, and open & close doors.
+
+  - Persona-based UI.

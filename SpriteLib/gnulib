@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# create a cygwin32-b18 ld compatible import archive
+# from an MS .LIB import lib.
+#
+# $1 -- MS .LIB file
+# $2 -- dlltool flags: -U adds "_" prefix; -k omits @n suffixes
+#
+# Creates a .a file in cwd.
+base=`basename "$1" .lib`
+def=$base.temp.def
+libname=lib$base.a
+echo LIBRARY $base > $def
+echo EXPORTS >> $def
+nm -o "$1" | grep " \? __imp__" | sed -e "s/.* __imp__\(..*\)$/\1/g" >> $def
+dlltool $2 --def $def --dllname $base.dll --output-lib $libname
+#rm $def
+echo Built $libname

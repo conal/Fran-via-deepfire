@@ -1,0 +1,460 @@
+<html>
+
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<meta NAME="GENERATOR" CONTENT="Microsoft FrontPage 5.0">
+<title>News on Fran Releases</title>
+</head>
+
+<body LINK="#0000ff" VLINK="#800080">
+
+<h1 ALIGN="CENTER">News on Recent Fran Releases</h1>
+
+<i><font color="#ff0000"><b>Most of the old versions are no longer
+available.&nbsp; If you really need one, please let me know.</b></font></i>
+
+<h2 ALIGN="left"><a href="javascript:function openEula(url){window.open(url,'eula','width=500,height=450,scrollbars=no,address=no,menu=no');}openEula('http://research.microsoft.com/downloads/download.asp?FUID={8C661070-F425-4319-92DF-EC3E8D736770}' + '&amp;CodeName=' + escape('Fran') + '&amp;Version=' + escape('1.16'));">1.16</a>
+June 28, 2001</h2>
+<ul>
+  <li>
+
+<p ALIGN="left">The Prelude tweak for threading mentioned for 1.15 is no longer 
+necessary.</li>
+<li>
+
+<p ALIGN="left">Small source changes to accommodate new hierarchical module name 
+spaces.</li>
+<li>
+
+<p ALIGN="left">Small source tweaks for comment lexer changes (&quot;--|&quot; is no 
+longer a comment).</li>
+</ul>
+
+<h2 ALIGN="left"><a href="javascript:function openEula(url){window.open(url,'eula','width=500,height=450,scrollbars=no,address=no,menu=no');}openEula('http://research.microsoft.com/downloads/download.asp?FUID={8C661070-F425-4319-92DF-EC3E8D736770}' + '&amp;CodeName=' + escape('Fran') + '&amp;Version=' + escape('1.15'));">1.15</a>
+June 28, 2001</h2>
+<ul>
+  <li>
+    <p ALIGN="left">Tiny tweak for compatibility with the February 2001 version
+    of Hugs98.&nbsp; Note: Fran examples will die immediately with &quot;Program error: no more threads (deadlock?)&quot;
+    unless you make a small change to your Hugs98/lib/Prelude.hs. Find the line that says:<br>
+    <br>
+    <kbd>&nbsp;&nbsp; loop (Hugs_ForkThread a b:r) = loop (a:b:r)</kbd><br>
+    <br>
+    and swap &quot;a&quot; and &quot;b&quot; in the right hand side, i.e.,
+    change the line to&nbsp;<br>
+    <br>
+    <kbd>&nbsp;&nbsp; loop (Hugs_ForkThread a b:r) = loop (b:a:r)</kbd><br>
+    <br>
+    My thanks to Sigbjørn Finne for this fix.</li>
+</ul>
+
+<h2 ALIGN="left"><a href="Zips/Fran1.14.zip">1.14</a> December 19, 2000</h2>
+
+<ul>
+  <li>
+    <p ALIGN="left">Tiny tweak for compatibility with recently changed <a href="http://www.cse.ogi.edu/PacSoft/projects/Hugs/pages/downloading.htm#Win32">win32
+    libs</a>.</li>
+</ul>
+
+<h2 ALIGN="left"><a href="Zips/Fran1.13.zip">1.13</a> May 15, 2000</h2>
+
+<ul>
+  <li>
+    <p ALIGN="left">Update for Hugs98.&nbsp; Fran was packaged with Hugs98, but
+    didn't work because of version skew and showable functions.&nbsp; Thanks
+    very much to Mark Jones for porting Fran from Haskell 1.4 to Haskell 98.</li>
+</ul>
+
+<h2 ALIGN="left"><a href="Zips/Fran1.12.zip">1.12</a> June 19, 1998</h2>
+
+<ul>
+  <li>Added to media: <a href="../media/halloween.bmp">halloween.bmp</a> and <a
+    href="../media/halloweenBig.bmp">halloweenBig.bmp</a> (now used in <a
+    href="../demos/Fifteen/Fifteen.hs">Fifteen demo</a>), and <a href="../media/kids.bmp">kids.bmp</a>
+    (now used in <a href="../demos/Collide/Main.hs">Collide demo</a>). </li>
+  <li>Added src/InputMonitor.hs, which defines functions for showing what actions the user is
+    taking. See the <a href="UsersMan.htm#InputMonitoring">brief treatment</a> in the &nbsp;
+    User's Manual. </li>
+  <li>Fixed a small but annoying bug that shows up in examples like Editor3.main
+    (Fran/demos/CurveEditor). Zero-scaled text was showing up as a default size. </li>
+  <li>Fixed another bug that showed up in various places, including Editor3.main. When you
+    pressed a mouse button, the text would move down from the middle of the window. </li>
+  <li>Added <tt>stylusPresent :: User -&gt; Bool</tt>, which determines whether the given user
+    has a stylus. See demos\Navigate\Hand.hs for a sample use.</li>
+  <li>Added lift (elevator) simulator by Simon Thompson, <a href="../demos/LiftSim/Main.hs">../demos/LiftSim/Main.hs</a>.
+    Click on the &quot;up&quot; or &quot;down&quot; button to call the lift up or down. If the
+    lift cannot service your request right away, the call button lights up and the lift comes
+    when it can.&nbsp; See Simon's <a href="http://www.cs.ukc.ac.uk/pubs/1998/583/index.html">technical
+    report</a> about this example, which also sheds light on Fran programming in general.</li>
+</ul>
+
+<h2><a HREF="Zips/Fran1.11-a.zip">1.11</a> May 6, 1998</h2>
+
+<ul>
+  <li>Rendered text and 2D geometry can now be <em>much</em> bigger without crashing Fran,
+    because I no longer render outside of the crop region. (Well, a little outside, to make up
+    for the infrequency of update w.r.t. display.) As an example, crop5 in <tt>demos\Test.hs</tt>
+    is now much longer and bigger. (Yes, this is obviously the way to go, but I didn't realize
+    it before.) </li>
+  <li>importFlipBook. Here's a tip: start with an animated GIF, and use <a
+    href="http://www.gamani.com">GIF Movie Gear</a> to view it. Do Tools/Unoptimize, and then
+    File/Export As/GIF Filmstrip, with horizontal orientation, and a factor of the number of
+    frames as the &quot;number of frames per strip&quot;. Then use another program (e.g., MS
+    Photo Editor) to convert the resulting non-animated GIF into a BMP. Then use
+    importFlipBook to bring it into Fran. Someday maybe Fran will import animated GIFs
+    directly. (Volunteers?) </li>
+  <li>I was surprised to learn that Windows generates <tt>WM_MOUSEMOVE</tt> messages as long
+    as the mouse is in the window, even if it's not moving. Reduced the message volume by
+    removing duplicates. </li>
+  <li>Added <tt>rectLL</tt>, <tt>rectUR</tt>, <tt>rectLR</tt>, <tt>rectUL</tt>, <tt>rectCenter</tt>,
+    <tt>rectSize</tt>, <tt>intersectRect</tt>, <tt>expandRect</tt>.&nbsp; (See the <a
+    href="UsersMan.htm#Images">User's Manual</a>)</li>
+  <li>Added support for tablets, based on&nbsp;<a href="http://www.pointing.com/wintab.htm">Wintab</a>.
+    (See the <a href="UsersMan.htm">User's Manual</a>)</li>
+  <li>New demos: two-handed image navigation, fifteen puzzle, colliding balls. See <a
+    href="demos.htm">demos.htm</a>. </li>
+  <li>Switched to static linking of MFC, so there's no dependency on a user's machine having
+    MFC, which tripped up several would-be users.</li>
+</ul>
+
+<h2><a HREF="Zips/Fran1.10.zip">1.10</a> February 27, 1998</h2>
+
+<ul>
+  <li>Main new features (see details below):<ul>
+      <li>animations with effects, via IO-valued events; and</li>
+      <li>multiple concurrent Fran windows.</li>
+      <li>CurveEditor demo.&nbsp; Try <tt>main</tt> in Editor6.hs.&nbsp; (Upcoming paper based on
+        this example.)</li>
+    </ul>
+  </li>
+  <li>Misc additions (see the <a href="UsersMan.htm">User's Manual</a>):<ul>
+      <li><tt>bufferSound</tt> and <tt>importWave</tt> now take a boolean second argument saying
+        whether to repeat.&nbsp; For the old behavior, pass <tt>True</tt>.</li>
+      <li>Examples 6 and 7 in the <a href="UsersMan.htm">User's Manual</a>, which demonstrates a
+        new event programming style that avoids explicitly recursive state machines and <tt>nextUser</tt>
+        (or <tt>afterE</tt>).</li>
+      <li><tt>moveTo</tt> and <tt>moveTo3</tt>.; <tt>nullB</tt> and <tt>!!*</tt>&nbsp; (liftings
+        of <tt>null</tt> and <tt>!!</tt>); <tt>colorRGB256</tt> </li>
+      <li><tt>accumE</tt> and <tt>stepAccum</tt> for cumulative events and piecewise-constant
+        behaviors. </li>
+      <li>Documented crop (UsersMan.hs). Try the cropping examples in ../demos/Test.hs. </li>
+      <li><tt>Rect</tt> and <tt>RectB</tt> types tweaked and documented (used by <tt>crop</tt>).</li>
+      <li>In <tt>HSpriteLib</tt>, added some constants and functions that should be moved into
+        Win32: <tt>WM_USER</tt>, <tt>Sleep</tt>, <tt>setWindowText</tt>, <tt>setWindowTextA</tt>, <tt>SIZE_RESTORED</tt>,
+        <tt>SIZE_MINIMIZED</tt> <tt>SIZE_MAXIMIZED</tt>, <tt>SIZE_MAXSHOW</tt>, <tt>SIZE_MAXHIDE</tt>.
+      </li>
+      <li>Fixed <tt>polyBezier</tt> to check the number of points:<br>
+        &nbsp;&nbsp; <tt>nPoints &gt; 1 &amp;&amp; nPoints `mod` 3 == 1</tt> </li>
+      <li>Added/documented <tt>setInitialViewSize</tt> and <tt>withInitialViewSize</tt>. </li>
+      <li>Generalized <tt>displayU</tt> to <tt>displayUs</tt>, which takes a *list* of <tt>User-&gt;ImageB</tt>
+        functions and makes simultaneous windows. (<tt>displayU</tt> is still there as a
+        convenience.) </li>
+      <li>Generalized <tt>displayU</tt> to <tt>displayEx</tt>. The argument produces not only an <tt>ImageB</tt>,
+        but also a function from the created window to an effect-valued event. Upon each event
+        occurence, execute the corresponding action. This function returns the window but does not
+        start an event loop, which can be done separately by calling eventLoop. The point is to
+        allow a program to insert some other calls, e.g., to set the window title, add menus, etc.
+        See <tt>tryEffects</tt>, <tt>effects1</tt> and <tt>effects2</tt> in demos\Test.hs. </li>
+      <li>Added functions for multiple simultaneous animation windows: <tt>displays</tt>, <tt>displayGs</tt>,
+        <tt>displayGUs</tt>. </li>
+    </ul>
+  </li>
+  <li>Bug fixes:<ul>
+      <li>Initial mouse position now outside of window (was thought to be in the center).</li>
+      <li>Zero-scaled text image is now invisible. (Win32 note: <tt>createFont</tt> interprets
+        font height==0 as a request to choose a default size.) </li>
+      <li>Time transformation now treats <tt>colorG</tt> correctly </li>
+      <li>2D rotate and scale of rendered geometry now work </li>
+      <li>Fixed handling of window Quit. Now we sample and do effects one last time before
+        destroying the window. Allows things like file save on quit. </li>
+    </ul>
+  </li>
+  <li>Bug: if synthetic images are too big, the DDraw <tt>CreateSurface</tt> call dies, taking
+    the process with it. Clipping synthetic images before rendering should fix the problem. </li>
+</ul>
+
+<h2><a HREF="Zips/Fran1.09.zip">1.09</a> Dec 5, 1997</h2>
+
+<ul>
+  <li>There's now a Fran user's manual, in UsersMan.htm</li>
+  <li>Added Roids, a start at an Asteroids game. Much still to be done.</li>
+  <li>As of very recently, Fran works with GHC, thanks to tons of help from Sigbjorn Finne.
+    Performance is much better. If you're feeling brave, see docs\HowToGHC.txt.</li>
+  <li>Added charPress and charPressAny which return ASCII characters instead of the VKey</li>
+  <li>Added setWinSize to set the window start-up size.</li>
+  <li>Changed the behavior-level versions of functions like vector2XYCoords to return a pair
+    of behaviors, rather than behavior of pairs. Now you don't have to apply pairBSplit to the
+    result. The old versions are still around, but are given names like vector2XYCoordsB.</li>
+  <li>Added partial support for Enum (e.g., [0, dt ..]). For now, only works for contant
+    behaviors. I don't know how to do the more general case.</li>
+  <li>Added Rect and RectB types. Added ImageB crop function that uses them. This turned out
+    to be harder than I thought, but it worked out nicely. You can do some very cool effects
+    with it. See crop1, .. crop6 in Test.hs.</li>
+  <li>Generalized move, moveXY, etc to work on Transformable2B types</li>
+  <li>Change binding strength of several infix event operators so they cascade without
+    parentheses. All of the following are now &quot;infixl 3&quot;: ==&gt;, -=&gt; ,
+    `handleE`, `filterE` , `withElemE`, `withElemE_` , `withPrevE`, `withPrevE_` , `suchThat`,
+    `suchThat_`, `snapshot`, `snapshot_`, `whenE`.</li>
+  <li>Added sound pan function. (Note that panning and volume adjustment also happen
+    automatically with movement and scaling of images with embedded sounds.)</li>
+  <li>Fixed bug with negative sprite scaling and off-screen motion. Had to do manual clipping
+    to avoid what seems to be a DDraw bug.</li>
+  <li>Added several display functions. Use displayU instead of disp.</li>
+  <li>Misc: replaced smaller/bigger by stretch; introduced turn3, move3, stretch3; added spin3
+    and spiral3D in Tutorial.hs.</li>
+  <li>Improved robustness. If DirectDraw takes away a drawing surface, Fran restores it
+    instead of crashing! When the DirectSound device cannot be opened, keep trying, using
+    abort/retry/ignore dialog.</li>
+</ul>
+
+<h2><a HREF="Zips/Fran1.06.zip">1.06</a> Oct 14, 1997</h2>
+
+<ul>
+  <li>src\Color.hs: Changed hue in HSL from degrees to radians, for consistency with angles.
+    Fixed <b>colorHSL</b> to map hue properly to [0,2*pi) </li>
+  <li>Added <b>solidImage :: ImageB</b> </li>
+  <li>Some preparation for GHC compatibility (VectorSpace.lhs and Behavior.lhs) </li>
+  <li>demos\tutorial.hs: added moreKids.hs, which is a crazy animation! In Tutorial, try
+    &quot;<b>displayU moreKids</b>&quot;. Click deliberately and watch carefully. </li>
+  <li>Sokoban3: new artwork -- need Pentium 5 to run this fast :-) </li>
+  <li>UtilsB: added <b>toggle</b>, <b>leftButton</b>, <b>rightButton</b>, <b>importX</b>.
+    Renamed <b>nextUser</b> to <b>nextUser</b>_, and added a new <b>nextUser</b>. </li>
+  <li>Many import changes for GHC compatibility</li>
+</ul>
+
+<h2><a HREF="Zips/Fran1.05.zip">1.05</a> Oct 7, 1997</h2>
+
+<ul>
+  <li>Added sound and 3D, and &quot;flipbook&quot; 2D animation, all using DirectX. The
+    implementation incorporates a &quot;temporal sprite engine&quot; for very smooth 2D motion
+    and scaling (if you have DirectDraw hardware acceleration). The 3D support is
+    &quot;preliminary&quot;, and could use a lot more work. (<b>untilB</b> doesn't work quite
+    yet.) </li>
+  <li>Behaviors are represented by memoized functions from time streams to value streams. </li>
+  <li>Added <b>demos</b> directory. Check out <b>Tutorial.hs</b>, <b>Mover.hs</b>, and <b>Sokoban3\SokoDemo.hs</b>.</li>
+</ul>
+
+<h2><a HREF="Zips/rbmh0.81.zip">0.81</a> Nov 11, 1996</h2>
+
+<ul>
+  <li>Integrated lots of changes from <a
+    HREF="http://www.cs.yale.edu/HTML/YALE/CS/HyPlans/reid-alastair.html">Alastair Reid</a>.
+    He updated rbmh to a newer Hugs version, and making various improvements, and rewriting <strong>PrimInteract.hs</strong>
+    to be much simpler. (Thanks, Alastair!!) </li>
+  <li>Turned <strong>Samples.hs</strong> into a literate program, <strong>Tutorial.lhs</strong>
+    with lots of prose. Please try it out and let me know what you think. </li>
+  <li>Re-introduced fuzzy/interval analysis, and reimplemented <strong>predicate</strong> to
+    use it. Renamed old version to <strong>predicate'</strong>. It's still useful because <strong>predicate</strong>
+    doesn't handle <strong>untilB</strong> and (thus) <strong>integral</strong> yet. </li>
+  <li>Replaced point and vector arithmetic names with operators, based on the names that were
+    in <strong>UtilsB.hs</strong> </li>
+  <li>Replaced point and vector arithmetic names with operators, based on the names that were
+    in <strong>UtilsB.hs</strong>. Added ^+^ and ^-^, although for specific vector space
+    types, + and - should be defined as well. </li>
+  <li>Added <strong>mouseTrailWords</strong> for making dancing word lists in Tutorial.lhs
+    Made <strong>trailWords</strong> and <strong>mouseTrailWords</strong> take an explicit
+    color argument </li>
+  <li>In <strong>ShowImageB.hs</strong>, removed <strong>times</strong>, which was motivated
+    by an earlier representation. No more <strong>unsafeIntereaveIO</strong>! Also simplified <strong>timeSinceMS</strong>
+    a lot, thanks to Alastair. I don't remember why I had the complicated version. Made <strong>draw</strong>
+    simpler, by not using <strong>times</strong>. </li>
+  <li>In <strong>ShowImageB.hs, </strong>added flag <strong>presentation</strong>, normally <strong>False</strong>.
+    Make <strong>True</strong> for a (e.g., PowerPoint) presentation. Makes the window stay on
+    top, but in a corner. Also, resizing the window scales the animation. </li>
+  <li>In ImageBTest.hs, renamed <strong>viewStretch</strong> to <strong>viewStretchBmpFile</strong>,
+    and made it use <strong>viewStretch</strong> in UtilsB.hs. The directions self-destruct
+    after three seconds. </li>
+  <li>Renamed <strong>Pick2Image</strong> module to <strong>PickImage.</strong> </li>
+  <li>More and corrected <strong>Forceable</strong> instances. </li>
+  <li>Decoupled import vs display pixels-per-unit. See <strong>bitmapPixelsPerLengthHorizontal</strong>
+    in <strong>Image.hs</strong>, vs <strong>screenPixelsPerLengthHorizontal</strong> in <strong>ShowImageB.hs</strong>,
+    and similarly for vertical. </li>
+  <li>Misc small improvements to <strong>Integral.hs</strong>. Better factored now. Removed
+    the scale-by-zero trick, moving it outside of the recursion. Switched implementation to
+    work more natively at the behavior level, removing the explicit lifting in <strong>linearPart</strong>.
+    Still does a sampling of the integrand, which it would be nice to eliminate somehow. </li>
+  <li>Made all <strong>Win32</strong> dependencies explicit through qualified import, in
+    preperation for Thomas Nordin's GHC green card. </li>
+  <li>Noticed that <strong>map</strong> is defined on <strong>IO</strong>. Tweaked <strong>viewSize</strong>
+    calculation in <strong>ShowImageB.hs</strong> to use <strong>map</strong>. I wonder why <strong>Monad</strong>
+    isn't defined as a subclass of <strong>Functor</strong>, since IO's definition of map does
+    not seem IO-specific. </li>
+</ul>
+
+<h2><a HREF="Zips/rbmh0.8patched.zip">0.8</a> Oct 31, 1996</h2>
+
+<ul>
+  <li>Made this version just before giving a talk at the Oregon Center for Advanced Technology
+    Education (OCATE). </li>
+  <li>Added a few small images to <strong>Media\</strong>, thanks to <a
+    HREF="http://www.pixelmonkey.com/">Pixel Monkey</a>. </li>
+  <li>A bunch of new examples in a new source file <strong>Samples.hs</strong>. These are the
+    OCATE talk examples. Try them out! </li>
+  <li>Added <strong>Force.hs</strong>, which defines a <strong>Forceable</strong> type class.
+    Helps when lazy evaluation causes space leaks(Anthony Daniels) </li>
+  <li>More helper functions in <strong>UtilsB.hs</strong>: <strong>TurnRight, TurnLeft,</strong>
+    <strong>move</strong>, <strong>biggerXY</strong>, <strong>smallerXY</strong>, and <strong>wiggleRange</strong>.
+    Removed <strong>moveHorizontal</strong> and <strong>moveVertical</strong>. Removed color
+    from the <strong>showIm</strong> functions. Added <strong>atRate</strong> (synonym for <strong>integral</strong>).
+  </li>
+  <li>Added point and vector operation synonyms. .+^ .-., *^, and ^/. </li>
+  <li>Text display now centers. </li>
+  <li>Text now scales and rotates properly !!! </li>
+  <li>Made default font be times roman, rather than &quot;system&quot; </li>
+  <li>Noticed that <strong>i21</strong>, <strong>i22</strong> now work nicely. Sigbjorn made
+    these ones, and apparently the version 0.7 changes let them work properly. Try them --
+    they're delightful! </li>
+  <li>Added <strong>lbr</strong>, <strong>rbr</strong>, and simplified <strong>lbp</strong>
+    and <strong>rbp</strong> </li>
+  <li>Doubled pixels-per-unit. You'll notice that the demo window is now bigger. </li>
+</ul>
+
+<h2><a HREF="Zips/rbmh0.7.zip">0.7</a> Oct 25, 1996</h2>
+
+<ul>
+  <li>Re-introduced Sigbjorn's monadic event combinators. See especially &gt;&gt;, &gt;&gt;=,
+    +&gt;&gt;=, and joinEvent. These are very useful and complement the previous set. The
+    event combinators <strong>suchThat</strong> and <strong>filterEv</strong>, which were
+    previously primitive, are now derived. Even <strong>predicate</strong> is defined in terms
+    of &gt;&gt;. (Interval analysis still not restored.) <em>Check it out!</em> </li>
+  <li>Big change in representation of behaviors and events. A behavior is no longer maps time
+    streams to value streams, but rather maps a single time to a value and a new behavior.
+    Simon PJ recommended this representation as being neatly deforestable by GHC. (Sigbjorn
+    also suggested it a while back.) Similarly, an event takes a query time tq and returns
+    either a time/value pair (te,x) with te&lt;tq, or a new event (non-occurrence). </li>
+  <li>Rewrote <strong>integral</strong> to be a recursive reactive behavior. Still uses
+    Euler's method :-( but now is piecewise-linear between steps. </li>
+</ul>
+
+<h2><a HREF="Zips/rbmh0.6.zip">0.6</a> Oct 25, 1996</h2>
+
+<ul>
+  <li>Changed several of the examples in <strong>ImageBTest.hs</strong> to use the <strong><font
+    FACE="Courier New">*=&gt;</font></strong> operator, whose second argument consumes just
+    the event time, ignoring the data. </li>
+  <li>Added <strong>regularPolygon</strong> and <strong>star</strong> in <strong>Image.hs</strong>
+    and <strong>ImageB.hs</strong>. </li>
+  <li>Added <strong>bounce1'</strong>, a new version of <strong>bounce</strong>1, in <strong>ImageBTest.hs</strong>.
+    The new one is simpler, but doesn't yet work, probably because of too much self-reactivity
+    (snapshotting and/or predicate). </li>
+  <li>Added <strong>UtilsB.hs</strong>. Ad hoc collection of definitions. These are here for
+    introductory use, to make it easier to do some simple things. I'd like to make it so that
+    kids can use this simple vocabulary. </li>
+</ul>
+
+<h2><a HREF="Zips/rbmh0.5.zip">0.5</a> Oct 8, 1996</h2>
+
+<ul>
+  <li>Added <strong>pairBSplit</strong> for taking apart pair-valued behaviors. Sample use:<br>
+    (wWidth, wHeight) = pairBSplit (vector2XYCoords <em>aVecBehavior</em>) </li>
+  <li>Added projects.htm, listing non-trivial RBMH-related projects. </li>
+  <li>Fixed error in <strong>interpolateColor</strong> found by Gary Shu Ling. </li>
+  <li>Added ^* and ^^*, lifted versions of ^ and ^^. Added lifted ^ and ^^ (exponentiation). </li>
+  <li>Added +, -, and negate on vectors (via a <strong>Num</strong> instance). </li>
+  <li>Fixed the view transformation so that the origin is always in the window center. (!) </li>
+  <li>Added a frame to the bouncy ball examples <strong>i23</strong> and <strong>i24</strong>.
+  </li>
+  <li>Added a lot of number operator overloadings and functions, and checked in <strong>Behavior.hs</strong>.
+    Several couldn't be lifted because of their types, and so have names like &quot;<strong>roundB</strong>&quot;
+    instead of &quot;<strong>round</strong>&quot;. If you try using something like &quot;<strong>round</strong>&quot;,
+    you'll get a helpful error message. </li>
+  <li>Added <strong>dispFps</strong> to ImageBTest.hs. This variant of <strong>disp</strong>
+    shows the frames per second. </li>
+  <li>Re-activated frames-per-second counting. See <strong>dispFps</strong> in <strong>ImageBTest.hs</strong>.
+  </li>
+  <li>Added <strong>showB</strong>, a lifting of <strong>show</strong>. </li>
+  <li>Integrated Gary's fix for <strong>viewSize</strong> behavior. </li>
+  <li>Added example <strong>i37</strong> showing a use of <strong>viewSize</strong> to stretch
+    an image to fit the window, based on a similar function of Gary's. </li>
+  <li>Added a frog image <strong>Media\frog.bmp</strong> from <a
+    HREF="http://www.cs.yale.edu/homes/sjl/froggy.html">Sandra Loosemore's frog page</a>. </li>
+</ul>
+
+<h2><a HREF="Zips/rbmh0.4.zip">0.4</a> Sept 20, 1996</h2>
+
+<ul>
+  <li>Changed <strong>polyline</strong> from being a filled polygon to be a set of connected
+    line segments. Added <strong>polygon</strong> for describing n-sided filled polygons. The
+    inside of a polygon is filled with the (outermost) color specified with the <strong>withColor</strong>
+    combinator, i.e., <tt>withColor red (polygon ls)</tt> draws a red polygon. (default is
+    white). Line segments are drawn with a white pen. </li>
+  <li>Switched color transformation combinators from using RGB color space to HSL (removed
+    mixRed,mixGreen,mixBlue). </li>
+  <li>Added a fourth control point argument to <strong>bezier</strong>, instead of having the
+    origin2 be the implicit first control point. </li>
+  <li>Added a bunch of demos that uses <strong>polyline</strong>, <strong>polygon</strong> and
+    <strong>bezier</strong>. </li>
+</ul>
+
+<h2><a HREF="Zips/rbmh0.3.zip">0.3</a> Sept 17, 1996</h2>
+
+<ul>
+  <li>Added <strong>StaticTypes</strong> module, which just packages up the static modeling
+    types. Recommended use: &quot;<strong>import qualified StaticTypes as S</strong>&quot;.
+    (As in <strong>ImageBTest.hs</strong>.) </li>
+  <li>Added <strong>predicate</strong> for events based on boolean behaviors. </li>
+  <li>Added bouncing ball examples <strong>i23</strong> and <strong>i24</strong> to <strong>ImageBTest.hs</strong>.
+    For <strong>i24</strong>, do a left-click to add a new ball. They disappear after five
+    seconds. </li>
+  <li>Switched all <strong>ImageBTest</strong> examples to be functions of start time, to
+    eliminate space leak (CAFs) and to make them temporally composable. </li>
+  <li>Added keyboard event primitives <strong>primKP</strong> and <strong>primKR</strong> in <strong>PrimInteract.hs</strong>,
+    plus a higher-level version <strong>keyPress</strong> in <strong>Interaction.hs</strong>.
+    Changed <strong>i8</strong> in <strong>ImageBTest</strong> to use it. </li>
+  <li>Added <strong>allDemos</strong> to <strong>ImageBTest</strong>. This new &quot;super
+    demo&quot; combines all of the others. run &quot;<strong>disp allDemos</strong>&quot; to
+    see them all, and press &lt;space&gt; to go on to the next item. </li>
+  <li>Added lifted list formation and extraction: <strong>nilB, consB, headB, tailB</strong>. </li>
+</ul>
+
+<h2><a HREF="Zips/rbmh0.2.zip">0.2</a> Sept 16, 1996</h2>
+
+<ul>
+  <li>Added timeTransform to Behavior.hs. Warning: the implementation of untilB assumes that
+    the given time stream does not go backwards across events. We cannot guarantee this
+    property, so be careful! Before, we've said to use only monotically non-decreasing time
+    transforms, but non-monotonic ones are very useful at times, and untilB is the only
+    construct that has trouble with them. (Even integration doesn't mind.) </li>
+  <li>Changed ImageTest.lotus to take take the number of rings as an argument, rather than
+    doing using many of them. Added example ImageBTest.i18 to show it off. Still pretty slow.
+    :-( </li>
+  <li>Major change to the representation of events. </li>
+  <li>Added some neat examples of Sigbjorn's, involving time transforms. See i19, i20, and i21
+    in ImageBTest.hs. Unfortunately, time transformation works badly with external events, and
+    thus with the mouse position behavior, to i20 and i21 are quite jerky. </li>
+  <li>Renamed constructors Vector2 and Point2 to Vector2XY and Point2XY. </li>
+  <li>Re-implemented integral so that recursive systems (ODEs) work efficiently! Try
+    &quot;disp (i17 0)&quot; in ImageBTest, and move the mouse around. The eyes are connected
+    in a chain of springs. Introduced the t0 argument to to avoid a space leak problem. This
+    change should be done throughout ImageBTest. </li>
+  <li>Removed determinant common-subexpression from inverse2. </li>
+  <li>Renamed lerp2 to linearInterpolate2. </li>
+  <li>Added RBMH module, which imports all the individual parts of RBMH, and reexports those
+    appropriate for a casual user. (Thanks go to Alastair Reid for these last three items.) </li>
+</ul>
+
+<h2><a HREF="Zips/rbmh0.1.zip">0.1</a> Sept 9, 1996</h2>
+
+<ul>
+  <li>Fixed inverse2 bug that messed up screen-to-world mapping </li>
+  <li>Fixed RenderImage.draw to catch all errors and print &quot;Win32 drawing error&quot;
+    instead of bombing. When you start seeing this message, you can kill the animation window.
+  </li>
+  <li>Changed ImageBTest.smoothGrowShrink to scale by &quot;exp (integral (changingRate t0)
+    t0&quot; instead of &quot;1 + integral (changingRate t0) t0&quot;. The result looks better
+    the new way and never does negative scaling. </li>
+  <li>Added a bunch of fun examples to ImageBTest. These examples are eyes that look at the
+    mouse and one that chases it. See i12 to i16. </li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2><a HREF="Zips/rbmh0.0.zip">0.0</a> Sept 8, 1996</h2>
+
+<ul>
+  <li>First release </li>
+</ul>
+
+<p>&nbsp;</p>
+</body>
+</html>
